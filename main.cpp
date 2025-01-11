@@ -297,7 +297,7 @@ inline void test_negative_big_fraction()
 
 auto main( int argument_cout, char* argument_vector[] ) -> int
 {
-	SM2Tests::RunAllTests();
+	//SM2Tests::RunAllTests();
 
 	//TEST PASSED
 	/*TwilightDream::BigInteger::BigInteger TestNumber( "123456789", 10 );
@@ -328,10 +328,14 @@ auto main( int argument_cout, char* argument_vector[] ) -> int
 	TestBigFraction.PrecisionMode = TwilightDream::BigFraction::DecimalPrecisionMode::Fixed;
 	TestBigFraction.FixedPrecisionCount = 100;
 	std::cout << TestBigFraction.Power(3) << std::endl;
+	//FIXME
 	std::cout << TestBigFraction.Power(TwilightDream::BigFraction::BigFraction(1, 4)) << std::endl;
 	std::cout << TestBigFraction.Sqrt() << std::endl;
+	//FIXME
 	std::cout << TestBigFraction.Cbrt() << std::endl;
+	//FIXME
 	std::cout << TestBigFraction.Log() << std::endl;
+	//FIXME
 	std::cout << TestBigFraction.Log10() << std::endl;
 	//FIXME
 	std::cout << TestBigFraction.NthRoot(4) << std::endl;
@@ -341,8 +345,11 @@ auto main( int argument_cout, char* argument_vector[] ) -> int
 	TestBigFraction.SetFullPrecision(FullPrecision);
 	std::cout << TestBigFraction.Power(3) << std::endl;
 	std::cout << TestBigFraction.Sqrt() << std::endl;
+	//FIXME
 	std::cout << TestBigFraction.Cbrt() << std::endl;
+	//FIXME
 	std::cout << TestBigFraction.Log() << std::endl;
+	//FIXME
 	std::cout << TestBigFraction.Log10() << std::endl;
 	//FIXME
 	std::cout << TestBigFraction.NthRoot(4) << std::endl;

@@ -99,21 +99,31 @@ namespace TwilightDream::Math
 			{
 				this->SetPrime(modulus);
 			}
-			unsigned_value = number % prime;
+
+			while(unsigned_value >= prime)
+			{
+				unsigned_value = unsigned_value - prime;
+			}
 		}
 
 		UnsignedFiniteField( const std::string& number, const std::string& modulus )
 			:
 			UnsignedFiniteField( UnsignedInteger(number, 10), UnsignedInteger( modulus, 10 ) )
 		{
-			unsigned_value = unsigned_value % prime;
+			while(unsigned_value >= prime)
+			{
+				unsigned_value = unsigned_value - prime;
+			}
 		}
 
 		UnsignedFiniteField( const std::string& number, uint32_t base_number, const std::string& modulus, uint32_t base_modulus = 10 )
 			:
 			UnsignedFiniteField( UnsignedInteger(number, base_number) , UnsignedInteger( modulus, base_modulus ) )
 		{
-			unsigned_value = unsigned_value % prime;
+			while(unsigned_value >= prime)
+			{
+				unsigned_value = unsigned_value - prime;
+			}
 		}
 
 		// 复制构造函数
@@ -415,21 +425,46 @@ namespace TwilightDream::Math
 			{
 				this->SetPrime(modulus);
 			}
-			signed_value = number % prime;
+
+			while(signed_value >= prime)
+			{
+				signed_value = signed_value - prime;
+			}
+
+			if(signed_value < 0)
+			{
+				signed_value = signed_value % prime;
+			}
 		}
 
 		SignedFiniteField( const std::string& number, const std::string& modulus )
 			:
 			SignedFiniteField( Integer(number, 10) , UnsignedInteger( modulus, 10 ) )
 		{
-			signed_value = signed_value % prime;
+			while(signed_value >= prime)
+			{
+				signed_value = signed_value - prime;
+			}
+
+			if(signed_value < 0)
+			{
+				signed_value = signed_value % prime;
+			}
 		}
 
 		SignedFiniteField( const std::string& number, uint32_t base_number, const std::string& modulus, uint32_t base_modulus = 10 )
 			:
 			SignedFiniteField( Integer(number, base_number) , UnsignedInteger( modulus, base_modulus ) )
 		{
-			signed_value = signed_value % prime;
+			while(signed_value >= prime)
+			{
+				signed_value = signed_value - prime;
+			}
+
+			if(signed_value < 0)
+			{
+				signed_value = signed_value % prime;
+			}
 		}
 
 		// 复制构造函数

@@ -1084,7 +1084,7 @@ namespace TwilightDream::BigInteger
 				BigInteger shiftedRoot = rootEstimate << blockBits;
 
 				// Calculate the current power of the root estimate
-				BigInteger currentPower = (rootEstimate.BigPower(k_)) << totalBits;
+				BigInteger currentPower = (rootEstimate.Power(k_)) << totalBits;
 
 				// Add alpha to the remainder shifted by totalBits
 				BigInteger shiftedRemainder = (remainder << totalBits) + alpha;
@@ -1095,7 +1095,7 @@ namespace TwilightDream::BigInteger
 				// Define the condition for binary search
 				auto condition = [&](const BigInteger& beta)
 				{
-					return (shiftedRoot + beta).BigPower(k_) <= powerPlusRemainder;
+					return (shiftedRoot + beta).Power(k_) <= powerPlusRemainder;
 				};
 
 				// Perform binary search to find the appropriate beta

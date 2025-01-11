@@ -99,6 +99,8 @@ namespace TwilightDream::BigFraction
 		BigFraction operator/( const BigFraction& other ) const;
 		BigFraction operator/( const BigInteger& other ) const;
 
+		BigFraction operator-() const;
+
 		bool operator<( const BigFraction& other ) const;
 		bool operator<=( const BigFraction& other ) const;
 		bool operator>( const BigFraction& other ) const;
@@ -218,11 +220,17 @@ namespace TwilightDream::BigFraction
 
 		static BigFraction GenerateSrinivasaRamanujanPI();
 		static BigFraction GenerateNilakanthaArrayPI( uint64_t iteration );
-		static BigFraction Exp( const BigInteger& value, DecimalPrecisionMode precision_mode = DecimalPrecisionMode::Full, uint64_t fixed_precision_count = 2 );
-		static BigFraction Exp( const BigFraction& value );
+		static BigFraction Exponential_Taylor( const BigInteger& value, DecimalPrecisionMode precision_mode = DecimalPrecisionMode::Full, uint64_t fixed_precision_count = 2 );
+		static BigFraction Exponential_Taylor( const BigFraction& value );
+		static BigFraction Exponential(const BigFraction &x, int64_t precision_digits = 16);
 
 		friend std::istream& operator>>( std::istream& is, BigFraction& fraction );
 		friend std::ostream& operator<<( std::ostream& os, const BigFraction& fraction );
+
+		friend BigFraction operator+( const BigInteger& left, const BigFraction& right );
+		friend BigFraction operator-( const BigInteger& left, const BigFraction& right );
+		friend BigFraction operator*( const BigInteger& left, const BigFraction& right );
+		friend BigFraction operator/( const BigInteger& left, const BigFraction& right );
 
 	private:
 		BigInteger numerator;
@@ -231,7 +239,8 @@ namespace TwilightDream::BigFraction
 		bool	   simplify_reduced = true;
 
 		void ReduceSimplify();
-		BigFraction LogCF(const BigInteger& value) const;
+		BigFraction LogarithmCF(const BigInteger& value) const;
+		BigFraction LogarithmHalley(const BigInteger &a) const;
 	};
 
 	inline BigFraction BigFractionFullPrecision(1, 0);
