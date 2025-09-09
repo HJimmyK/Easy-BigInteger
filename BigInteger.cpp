@@ -56,9 +56,8 @@ namespace TwilightDream::BigInteger
 
 	BigInteger::BigInteger( uint64_t value ) : values( 1, value )
 	{
-		//这个是有争议的，我们目前把它设置为数值"0"，而不是空比特容器的"0"
-		//This is controversial, we currently set it to the value "0" instead of "0" for an empty bit container.
-		//Clean();
+		// If value equals to 0, clean the leading zeros and set length to 0.
+		Clean();
 	}
 
 	BigInteger::BigInteger( const std::string& number_string )

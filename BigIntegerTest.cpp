@@ -558,6 +558,22 @@ namespace TwilightDream::BigInteger::Test
 		std::cout << std::boolalpha << ( ( a % b ).ToString( 10 ) == r ) << '\n';
 	}
 
+	inline void test_compare()
+	{
+		BigInteger a = 1;
+		std::cout << a.ToString() << std::endl;
+		a = a >> 1;
+		std::cout << a.ToString() << std::endl;
+
+		std::cout << "--------------------------------------\n";
+		a = 0;
+		std::cout << a.Size() << "\n";
+		std::cout << "--------------------------------------\n";
+
+		a >>= 1;
+		std::cout << std::boolalpha << ( a == 0 ) << '\n';
+	}
+
 	void test_all()
 	{
 		test_binary_inout();
@@ -582,5 +598,6 @@ namespace TwilightDream::BigInteger::Test
 		test_byte_export_import();
 		test_prime();
 		test_signed_division();
+		test_compare();
 	}
 }  // namespace TwilightDream::BigInteger::Test
